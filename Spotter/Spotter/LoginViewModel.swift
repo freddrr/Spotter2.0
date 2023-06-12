@@ -9,10 +9,16 @@ import Foundation
 
 class LoginViewModel : ObservableObject {
     var number : Int = 0
+    var username : String = ""
     
     func increment() {
         print(number)
         number = number + 1
         print(number)
+    }
+    
+    func printUsername() {
+        
+       
     }
 }
