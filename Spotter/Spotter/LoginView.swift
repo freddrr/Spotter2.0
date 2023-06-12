@@ -15,7 +15,8 @@ struct LoginView : View {
         ZStack {
             VStack {
                 Text("Welcome to Spotter")
-                Button("Click Here", action: viewModel.increment)
+                TextField("Please enter a username", text: $viewModel.username)
+                Button("Return username", action: viewModel.printUsername)
             }
         }
     }
