@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 
-struct LoginView : View {
-    @ObservedObject var viewModel = LoginViewModel()
+struct SignUpView : View {
+    @ObservedObject var viewModel = SignUpViewModel()
     
     var body : some View {
         ZStack {
@@ -48,10 +48,10 @@ struct LoginView : View {
                                 .padding(.horizontal, 20)
                                     )
                 Button("Register") {
-                    print("Email: \(viewModel.email)")
-                    print("Username: \(viewModel.username)")
-                    print("Password: \(viewModel.password)")
+                    viewModel.signIn()
                 }
+                   // NavigationLink("Already have an account?", value: SignInView())
+                
             }
             .padding()
         }
