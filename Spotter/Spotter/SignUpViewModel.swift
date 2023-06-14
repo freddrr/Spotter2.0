@@ -7,11 +7,29 @@
 
 import Foundation
 
-class LoginViewModel : ObservableObject {
+@MainActor
+class SignUpViewModel : ObservableObject {
     var number : Int = 0
     var email : String = ""
     var username : String = ""
     var password : String = ""
+    
+    func signIn() {
+        guard !email.isEmpty, !password.isEmpty else {
+            print("No email or password found.")
+            return
+        }
+        
+        Task {
+            do {
+                let userData: () = try await AuthManager.shared.createUser(email: email, password: password)
+                print(userData)
+            }
+            catch {
+                print("Error")
+            }
+        }
+        }
     
     func increment() {
         print(number)
